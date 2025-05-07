@@ -45,13 +45,12 @@ st.header('Music Recommender System')
 
 # files from drive
 import gdown
-url = "https://drive.google.com/uc?id=https://drive.google.com/file/d/1h3hjNQuHmgQ3kXz3XeZhd7swlbd0xmfN/view?usp=sharing"
-output = "songReccomendation/df.pkl"  # The path where the file will be saved locally
-gdown.download(url, output, quiet=False)
 
-url = "https://drive.google.com/uc?id=https://drive.google.com/file/d/17i298MWl4qAI5D_3L_ybqIu_4OEt49ph/view?usp=sharing"
-output = "songReccomendation/similarity.pkl.csv"  # The path where the file will be saved locally
-gdown.download(url, output, quiet=False)
+# df.pkl
+gdown.download("https://drive.google.com/uc?id=1h3hjNQuHmgQ3kXz3XeZhd7swlbd0xmfN", "songReccomendation/df.pkl", quiet=False)
+
+# similarity.pkl
+gdown.download("https://drive.google.com/uc?id=17i298MWl4qAI5D_3L_ybqIu_4OEt49ph", "songReccomendation/similarity.pkl", quiet=False)
 
 music = pickle.load(open('songReccomendation/df.pkl', 'rb'))
 similarity = pickle.load(open('songReccomendation/similarity.pkl','rb'))
