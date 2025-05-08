@@ -46,9 +46,21 @@ st.header('Music Recommender System')
 # files from drive
 import gdown
 
-# df.pkl
-gdown.download("https://drive.google.com/uc?id=1h3hjNQuHmgQ3kXz3XeZhd7swlbd0xmfN", "songReccomendation/df.pkl", quiet=False)
+import os
+import subprocess
 
+# Check if the df.pkl exists before downloading
+df_path = 'songReccomendation/df.pkl'
+if not os.path.exists(df_path):
+    print("Downloading df.pkl from Google Drive...")
+    subprocess.run([
+        'gdown',
+        '--id',
+        '1h3hjNQuHmgQ3kXz3XeZhd7swlbd0xmfN',
+        '-O',
+        df_path
+    ], check=True)
+    
 # similarity.pkl
 gdown.download("https://drive.google.com/uc?id=17i298MWl4qAI5D_3L_ybqIu_4OEt49ph", "songReccomendation/similarity.pkl", quiet=False)
 
